@@ -7,7 +7,9 @@ submenu in the classic file context menu.
 Windows' own tags (`System.Keywords`) only work for file types with a property
 handler — not `.txt`, `.zip`, `.rar` or folders. This mod tags anything.
 
-![The Tags panel and the Tags submenu](docs/explorer-tags.png)
+![The Tags panel at the bottom of the navigation pane](docs/panel.png)
+
+![The Tags submenu in the file context menu](docs/menu.png)
 
 ## What it does
 
