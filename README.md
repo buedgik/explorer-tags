@@ -7,6 +7,8 @@ submenu in the classic file context menu.
 Windows' own tags (`System.Keywords`) only work for file types with a property
 handler — not `.txt`, `.zip`, `.rar` or folders. This mod tags anything.
 
+![The Tags panel and the Tags submenu](docs/explorer-tags.png)
+
 ## What it does
 
 - **Tag something** — drag files or folders onto a tag in the panel, or use
@@ -60,10 +62,21 @@ installing anything, to catch errors and warnings:
 sh compilar.sh explorer-tags.wh.cpp
 ```
 
+## Worth knowing
+
+- **Don't put the tags folder in a synced location** (OneDrive, Dropbox, a
+  network share). A shortcut that is missing while the folder syncs looks
+  exactly like a shortcut you deleted, and the tag goes with it.
+- **The tags folder and the record stay after the mod is disabled.** Nothing is
+  created until you tag something for the first time.
+- **Changing the tags folder in the settings leaves the old one behind.** The
+  shortcuts are rebuilt under the new folder; the old folders aren't deleted.
+
 ## Status
 
-Built and reviewed, not yet field-tested. Known open questions are listed in the
-repository issues.
+Tested on Windows 11 24H2 (26200): the panel, tag navigation, collapsing,
+drag-and-drop tagging, the context menu with its check marks, renaming a tagged
+file, deleting a shortcut to untag, and open views refreshing on both.
 
 ## License
 
