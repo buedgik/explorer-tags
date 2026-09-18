@@ -74,8 +74,9 @@ sh compilar.sh explorer-tags.wh.cpp
   tracked.** A renamed shortcut stays behind as a file the mod no longer knows
   about, and moving one between tag folders removes the first tag without
   adding the second.
-- **The tags folder and the record stay after the mod is disabled.** Nothing is
-  created until you tag something for the first time.
+- **The tags folder and the record stay after the mod is disabled.** A tag's
+  folder appears the first time you tag something with it, or the first time you
+  click it in the panel; the record folder appears with the first tag.
 - **Changing the tags folder in the settings leaves the old one behind.** The
   shortcuts are rebuilt under the new folder; the old folders aren't deleted.
 - **The desktop and file dialogs are left alone**, by design: the panel and the
