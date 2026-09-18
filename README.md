@@ -68,7 +68,12 @@ sh compilar.sh explorer-tags.wh.cpp
 
 - **Don't put the tags folder in a synced location** (OneDrive, Dropbox, a
   network share). A shortcut that is missing while the folder syncs looks
-  exactly like a shortcut you deleted, and the tag goes with it.
+  exactly like a shortcut you deleted, and the tag goes with it. The whole
+  tree under it is watched, so keep it out of busy folders too.
+- **Deleting a shortcut removes the tag; renaming or moving one isn't
+  tracked.** A renamed shortcut stays behind as a file the mod no longer knows
+  about, and moving one between tag folders removes the first tag without
+  adding the second.
 - **The tags folder and the record stay after the mod is disabled.** Nothing is
   created until you tag something for the first time.
 - **Changing the tags folder in the settings leaves the old one behind.** The
