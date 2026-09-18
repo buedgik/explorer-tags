@@ -78,6 +78,8 @@ sh compilar.sh explorer-tags.wh.cpp
   created until you tag something for the first time.
 - **Changing the tags folder in the settings leaves the old one behind.** The
   shortcuts are rebuilt under the new folder; the old folders aren't deleted.
+- **The desktop and file dialogs are left alone**, by design: the panel and the
+  submenu are for Explorer windows only.
 
 ## Status
 
