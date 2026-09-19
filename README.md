@@ -16,7 +16,8 @@ handler — not `.txt`, `.zip`, `.rar` or folders. This mod tags anything.
 - **Tag something** — drag files or folders onto a tag in the panel, or use
   **Tags ▸** in the right-click menu of the selected files.
 - **See a tag's files** — click the tag. The current tab opens the tag's folder,
-  which holds a shortcut per tagged file. Middle-click opens it in a new window.
+  which holds a shortcut per tagged file. Middle-click, or right-click ▸ **Open
+  in new window**, opens it in a window of its own.
 - **Remove a tag** — delete the shortcut inside the tag's folder, or uncheck the
   tag in the right-click menu. The original file is never touched.
 - **Collapse the panel** — click the "Tags" title.
@@ -35,7 +36,12 @@ Two places on disk:
 | Path | What |
 | --- | --- |
 | `%USERPROFILE%\Tags\<tag>\` | one folder per tag, holding the shortcuts |
-| `%LOCALAPPDATA%\WindhawkExplorerTags\tags.tsv` | the record of what is tagged |
+| `…\Windhawk\Engine\ModsWritable\mod-storage\explorer-tags\<your SID>\tags.tsv` | the record of what is tagged |
+
+The record is the mod's own bookkeeping, so it lives in the storage Windhawk
+keeps for the mod, in a folder per user: that storage is machine-wide, and the
+record isn't — its rows point inside one profile. Uninstalling the mod (not
+merely disabling it) takes the record with it; the tag folders stay.
 
 The record lives outside the tags folder on purpose: deleting or moving the tags
 folder then loses nothing, and the shortcuts are rebuilt from it. Each tag folder
@@ -73,7 +79,12 @@ sh compilar.sh explorer-tags.wh.cpp
 - **Deleting a shortcut removes the tag; renaming or moving one isn't
   tracked.** A renamed shortcut stays behind as a file the mod no longer knows
   about, and moving one between tag folders removes the first tag without
-  adding the second.
+  adding the second. Restoring a deleted shortcut from the Recycle Bin doesn't
+  bring the tag back either — the tag went when the shortcut did, and what
+  comes back is a file the mod doesn't know.
+- **A tagged file in the Recycle Bin keeps its tags.** Its shortcut stays,
+  pointing where the file used to be, so restoring the file makes it work
+  again. Emptying the bin is what finally removes the tag.
 - **The tags folder and the record stay after the mod is disabled.** A tag's
   folder appears the first time you tag something with it, or the first time you
   click it in the panel; the record folder appears with the first tag.
