@@ -48,6 +48,15 @@ folder then loses nothing, and the shortcuts are rebuilt from it. Each tag folde
 carries a hidden `.tag` marker, which is how the mod tells "you deleted this
 shortcut, so untag it" from "this folder is new or was rebuilt".
 
+It works the other way round too: **the shortcuts are enough to rebuild the
+record**. A shortcut sitting in a tag's folder that the record doesn't know
+about is taken in — the folder says which tag, the shortcut says which file —
+so losing the record (uninstalling the mod, or anything else that clears its
+storage) costs nothing as long as the tag folders are still there. The same
+rule means you can tag a file by putting a shortcut to it in a tag's folder
+yourself. A tag whose name is no longer in the settings can't be rebuilt:
+put the name back and its files come back with it.
+
 All disk work happens on a worker thread, so an unreachable network path can
 never freeze an Explorer window.
 
@@ -76,12 +85,10 @@ sh compilar.sh explorer-tags.wh.cpp
   network share). A shortcut that is missing while the folder syncs looks
   exactly like a shortcut you deleted, and the tag goes with it. The whole
   tree under it is watched, so keep it out of busy folders too.
-- **Deleting a shortcut removes the tag; renaming or moving one isn't
-  tracked.** A renamed shortcut stays behind as a file the mod no longer knows
-  about, and moving one between tag folders removes the first tag without
-  adding the second. Restoring a deleted shortcut from the Recycle Bin doesn't
-  bring the tag back either — the tag went when the shortcut did, and what
-  comes back is a file the mod doesn't know.
+- **What is in the tag folders is what is tagged.** Deleting a shortcut
+  removes the tag; renaming one keeps it; moving one into another tag's folder
+  moves the tag; restoring one from the Recycle Bin brings the tag back. A
+  shortcut that points at nothing is left alone, never deleted.
 - **A tagged file in the Recycle Bin keeps its tags.** Its shortcut stays,
   pointing where the file used to be, so restoring the file makes it work
   again. Emptying the bin is what finally removes the tag.
